@@ -1,0 +1,360 @@
+<!doctype html>
+<html ng-app>
+  <head>
+  <style>
+
+.DOI {
+  position:absolute;
+    left: 300px;
+    top: 50px;
+    
+    }
+
+.INJURYBOX {
+  position: absolute;
+  left:250px;
+  top: 200px;
+}
+
+textarea {
+
+    width: 500px;
+    height: 150px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-size: 16px;
+    resize: none;
+}
+
+/* position of everything */
+.checky {
+   position: absolute;
+  left:300px;
+  top:400px;
+  }
+  
+  
+/* The container */
+.container {
+    display: circle;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    font-size: 15px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+    position: absolute;
+    opacity: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 15px;
+    width: 15px;
+    background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+    background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+    left: 7px;
+    top: 3px;
+    width: 1px;
+    height: 5px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+
+.EntryBox1 {
+
+    width: 190px;
+    height: 50px;
+    position: absolute;
+    left:30px;
+    top:150px;
+
+}
+
+.EntryBox2 {
+  width: 190px;
+  height: 50px;
+  position: absolute;
+  left:30px;
+  top:220px;
+
+}
+
+.EntryBox3 {
+    width: 190px;
+    height: 50px;
+    position: absolute;
+    left:30px;
+    top:290px;
+
+}
+
+.EntryBox4 {
+    width: 190px;
+    height: 50px;
+    position: absolute;
+    left:30px;
+    top:360px;
+
+}
+
+.ICE1 {
+    width: 100px;
+    height:550px;
+    position: absolute;
+    left:30px;
+    top:430px;
+
+}
+
+.ICE2 {
+    width: 100px;
+    height:550px;
+    position: absolute;
+    left:30px;
+    top:500px;
+
+}
+
+
+.dropdown {
+  position: relative;
+  display: incline-block;
+}
+body {
+      background-color: lightgrey;
+  }
+</style>
+
+<div class="DOI">
+<h3>When did you injury occur?</h3>
+
+<form>
+  <select id="month" name="country">
+    <option value="JA">January</option>
+    <option value="FE">Februray</option>
+    <option value="MA">March</option>
+    <option value="AP">April</option>
+    <option value="MY">May</option>
+    <option value="JU">June</option>
+    <option value="JL">July</option>
+    <option value="AU">August</option>
+    <option value="SP">September</option>
+    <option value="OT">October</option>
+    <option value="NV">November</option>
+    <option value="DC">December</option>
+  </select>
+</form>
+
+<form>
+  <select id="day" name="country">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+    <option value="11">11</option>
+    <option value="12">12</option> 
+    <option value="13">13</option>
+    <option value="14">14</option>
+    <option value="15">15</option>
+    <option value="16">16</option>
+    <option value="17">17</option>
+    <option value="18">18</option>
+    <option value="19">19</option>
+    <option value="20">20</option>
+    <option value="21">21</option>
+    <option value="22">22</option>
+    <option value="23">23</option>
+    <option value="24">24</option>  
+    <option value="25">25</option>
+    <option value="26">26</option>
+    <option value="27">27</option>
+    <option value="28">28</option>
+    <option value="29">29</option>
+    <option value="30">30</option>
+    <option value="31">31</option>     
+  </select>
+        <label>Year</label>
+      <input type="text" ng-model="a" placeholder="Enter Year">
+      <hr>
+</form>
+</div>
+
+<div class=INJURYBOX>
+  <h3> How did your injury occur? </h3>
+<form>
+<textarea type="text" placeholder="Enter Injury Information"></textarea>
+</form>
+</div>
+
+<div class="checky">
+  <h3>How would you describe you pain? (check all that apply) </h3>
+<label class="container">Thobbing
+  <input type="checkbox" checked="checked">
+  <span class="checkmark"></span>
+</label>
+<label class="container">Sharp
+  <input type="checkbox">
+  <span class="checkmark"></span>
+</label>
+<label class="container">Tingling
+  <input type="checkbox">
+  <span class="checkmark"></span>
+</label>
+<label class="container">Burning
+  <input type="checkbox">
+  <span class="checkmark"></span>
+</label>
+</div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+  </head>
+  <body>
+<div class="dropdown">
+  <button class="dropbtn">Menu</button>
+  <div class="dropdown-content">
+    <a href="#">Home</a>
+    <a href="#">Information</a>
+    <a href="#">Contact</a>
+  </div>
+</div>
+
+<h3>Gender</h3>
+<label class="container">Male
+  <input type="radio" checked="checked" name="radio">
+  <span class="checkmark"></span>
+</label>
+<label class="container">Female
+  <input type="radio" name="radio">
+  <span class="checkmark"></span>
+</label>
+
+
+
+    <div class="EntryBox1">
+      <label>Patient's Name:</label>
+      <input type="text" ng-model="yourName" placeholder="Enter Patient name">
+      <hr>
+    </div>
+    
+    <div class="EntryBox2">
+      <label>Patient's Birthday:  </label>
+      <input type="text" ng-model="yourBDay" placeholder="Enter Patient weight">
+      <hr>
+    </div>
+
+    <div class="EntryBox3">
+      <label>Patient's Weight:</label>
+      <input type="text" ng-model="yourWeight" placeholder="Enter Patient name">
+      <hr> 
+    </div>
+
+    <div class="EntryBox4">
+      <label>Patient's Height:</label>
+      <input type="text" ng-model="yourHeightFT" placeholder="ft">
+      <input type="text" ng-model="yourHeightIN" placeholder="in">
+      <hr>
+    </div>
+
+    <div class="ICE1">
+      <label>ICE Contact 1</label>
+      <input type="text" ng-model="ICENAME" placeholder="Name">
+      <input type="text" ng-model="ICE#" placeholder="Number">
+      <hr>
+    </div>
+
+    <div class="ICE2">
+      <label>ICE Contact 2</label>
+      <input type="text" ng-model="ICENAME1" placeholder="Name">
+      <input type="text" ng-model="ICE2#" placeholder="#">
+      <hr>
+    </div>
+  
+  </body>
+</html>
