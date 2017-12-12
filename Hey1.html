@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="CoffeeCup HTML Editor (www.coffeecup.com)">
+    <meta name="dcterms.created" content="Fri, 27 Jun 2014 21:02:23 GMT">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title></title>
+
+    <!--[if IE]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <style>
+
+
+.area {
+    width: 5000px;
+    height: 1000px;
+    position: absolute;
+    left:0px;
+    top:0px;
+    color: blue;
+    background-color: lightgray;
+}
+    body{
+
+    color: black;
+
+    }
+
+    .smallText
+    { 
+      position:  absolute;
+      left: 1000;
+      top: 100; /* set these so Chrome doesn't return 'auto' from getComputedStyle */
+      width: 200px; 
+      background: rgba(255,0,255,1); 
+      border: 2px  solid rgba(0,0,0,0.5); 
+      border-radius: 4px; padding: 8px;
+      resize: both;
+      overflow: auto;
+    }
+
+    .largeText
+    { 
+      width: 200px;
+      height: 50px;
+      position:  absolute;
+      left: 0;
+      top: 100; 
+      background: rgba(0,0,255,1); 
+      border: 2px  solid rgba(0,0,0,0.5); 
+      border-radius: 4px; padding: 8px;
+      resize: both;
+      overflow: auto;
+    }
+
+    .EntryBox1 {
+
+    width: 190px;
+    height: 50px;
+    position: absolute;
+    left:30px;
+    top:350px;
+    resize: both;
+    overflow: auto;
+
+}
+
+  .Button {
+  position: absolute;
+    left: 20px;
+    top: 500px;
+
+    }
+
+.DOI {
+    width: 190px;
+    height: 50px;
+    position: absolute;
+    left:30px;
+    top:250px;
+    resize: both;
+    overflow: auto;
+}
+
+
+
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: absolute;
+    top: 100px;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+    </style>
+    <script>
+
+      function myFunction() {
+    document.getElementById("myDIV").style.resize = "both";
+}
+
+    function drag_start(event) 
+    {
+    var style = window.getComputedStyle(event.target, null);/* Retrieves the style info of the event.target, which is the element that triggered the event */
+    var str = (parseInt(style.getPropertyValue("left")) - event.clientX) + ',' + (parseInt(style.getPropertyValue("top")) - event.clientY)+ ',' + event.target.id;
+    event.dataTransfer.setData("Text",str); /* parseInt parses a string and trtuens an integer // event.clientX) gives the x coordinate of the mouse, event.clientY) gives the y coordinate of the mouse //*/
+    } 
+
+    function drop(event) 
+    {
+    var offset = event.dataTransfer.getData("Text").split(',');
+    var dm = document.getElementById(offset[2]);
+    dm.style.left = (event.clientX + parseInt(offset[0],10)) + 'px';
+    dm.style.top = (event.clientY + parseInt(offset[1],10)) + 'px';
+    event.preventDefault();
+    return false;
+    }
+
+    function drag_over(event)
+    {
+    event.preventDefault();
+    return false;
+    }   
+    </script>
+  </head>
+
+  <body ondragover="drag_over(event)" ondrop="drop(event)">
+  
+  <div class="area"></div>
+
+  <div class = "smallText" id="txt1" draggable="true" ondragstart="drag_start(event)">
+          <label> Your Text Here </label>
+  </div>
+
+
+
+    <div class="EntryBox1" id="txt3" draggable="true" ondragstart="drag_start(event)">
+      <label>Patient's Name:</label>
+      <input type="text" ng-model="yourName" placeholder="Enter Patient name" >
+      <hr>
+    </div>
+
+  <div class="Button" id="txt4" draggable="true" ondragstart="drag_start(event)"> 
+  <button type="button" onclick="alert('Form Submitted!')">Submit</button>
+  </div>
+
+<div class="DOI" id="txt5" draggable="true" ondragstart="drag_start(event)">
+
+<form>
+  <select id="month" name="country">
+    <option value="JA">January   </option>
+    <option value="FE">Februray  </option>
+    <option value="MA">March     </option>
+    <option value="AP">April     </option>
+    <option value="MY">May       </option>
+    <option value="JU">June      </option>
+    <option value="JL">July      </option>
+    <option value="AU">August    </option>
+    <option value="SP">September </option>
+    <option value="OT">October   </option>
+    <option value="NV">November  </option>
+    <option value="DC">December  </option>
+  </select>
+</form>
+
+</div>
+
+
+<div class="dropdown" id="txt6" draggable="true" ondragstart="drag_start(event)">
+  <button class="dropbtn">Menu</button>
+  <div class="dropdown-content">
+    <a href="#">Link 1</a>
+    <a href="#">Link 2</a>
+    <a href="#">Link 3</a>
+    <a href="#">...</a>
+  </div>
+</div>
+
+
+  </body>
